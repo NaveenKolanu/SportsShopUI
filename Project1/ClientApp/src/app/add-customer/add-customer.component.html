@@ -1,0 +1,27 @@
+<p>add-customer</p>
+
+<form>
+    <div class="mb-3">
+        <label for="customerName" class="form-label">Customer Name</label>
+        <input type="text" class="form-control" id="customerName" name="customerName" 
+               [(ngModel)]="customer.customerName">  {{customer.customerName}}
+    </div>
+    <div class="mb-3">
+        <label for="customerName" class="form-label">Customer Number</label>
+        <input type="text" class="form-control" id="contactNumber" name="contactNumber"
+               [(ngModel)]="customer.contactNumber">
+    </div>
+    <div class="mb-3">
+        <label for="customerName" class="form-label">Customer Email</label>
+        <input type="email" class="form-control" id="customerEmailId" name="customerEmailId" 
+               [(ngModel)]="customer.customerEmailId">
+    </div>
+    <div class="mb-3">
+        <label for="customerName" class="form-label">Customer Address</label>
+        <input type="text" class="form-control" id="customerAddress" name="customerAddress" 
+               [(ngModel)]="customer.customerAddress">
+    </div>
+
+    <button type="submit" class="btn btn-primary" (click)="onSave()">Submit</button>
+</form>
+<br />

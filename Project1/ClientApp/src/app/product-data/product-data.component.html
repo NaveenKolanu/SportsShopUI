@@ -1,0 +1,42 @@
+<h1 id="tableLabel">Products Info</h1>
+
+<p>This component demonstrates fetching data from the server.</p>
+
+<p *ngIf="!products"><em>Loading...</em></p>
+
+<input type="button" value="Show Add New" (click)="showAddNew = !showAddNew" /> <br />
+<div *ngIf="showAddNew">
+    <label>Product Name</label>
+    <input type="text" name="productName" value="" [(ngModel)]="product.productName" /> <br />
+    <label>Product Price</label>
+    <input type="number" name="productPrice" [(ngModel)]="product.productPrice" /> <br />
+    <label>Product Color</label>
+    <input type="text" name="productColor" value="" [(ngModel)]="product.productColor" /> <br />
+    <label>Product Size</label>
+    <input type="text" name="productSize" value="" [(ngModel)]="product.productSize" /> <br />
+    <input type="button" value="save" (click)="onSave()" *ngIf="showSave || !showUpdate"/>
+    <input type="button" value="update" (click)="saveEdit()" *ngIf="showUpdate"/>
+</div>
+
+<table class='table table-striped' aria-labelledby="tableLabel" *ngIf="products">
+  <thead>
+    <tr>
+      <th>Name</th>
+      <th>Price</th>
+      <th>Color</th>
+      <th>Size</th>
+    </tr>
+  </thead>
+  <tbody>
+      <tr *ngFor="let product of products">
+          <td>{{ product.productName }}</td>
+          <td>{{ product.productPrice }}</td>
+          <td>{{ product.productColor }}</td>
+          <td>{{ product.productSize }}</td>
+          <td>
+              <input type="button" class="btn btn-primary" name="edit" value="edit"
+                     (click)="onEdit(product.productId)"/>
+          </td>
+      </tr>
+  </tbody>
+</table>
